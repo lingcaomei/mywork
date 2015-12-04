@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <!--<script src="http://ngnice.com/lib/angular/1.2.16/angular-route.js"></script>-->
+    <script src="ng-class.js"></script>
+    <style type="text/css">
+        .yerr{
+            background: red;
+        }
+        .ywarning{
+            background: yellow;
+        }
+    </style>
+
+</head>
+<body ng-app="app">
+    <div class="box" ng-controller="state">
+        <div ng-class="{ yerr:err , ywarning:warning }">{{msg}}</div>
+        <div>
+            <button ng-click="isErr()">err</button>
+            <button ng-click="isWarn()">warning</button>
+        </div>
+    </div>
+</body>
+</html>

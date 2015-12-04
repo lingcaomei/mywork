@@ -1,0 +1,16 @@
+<div ng-controller="newUserController">
+	<div>
+		<form ng-submit="save()">
+			<div><input type="text" ng-model="user.userName"></div>
+			<div><input type="text" ng-model="user.password"></div>
+			<div>
+				<select ng-model="user.type">
+					<option value="1">admin</option>
+					<option value="2">user</option>
+				</select>
+			</div>
+			<div><input type="submit" value="确定"></div>
+			<div><input type="button" value="取消" ng-click="cancel()"></div>
+		</form>
+	</div>
+</div>

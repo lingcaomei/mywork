@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+</head>
+<body>
+
+<script>
+    var app=angular.module('app',[]);
+    app.controller('myCtrl',function($scope,userInfo){
+
+        var promise=userInfo.query();
+        promise.then(function(data){
+            $scope.users=data;
+        }.function(){
+            alert('查询出错了')
+        })
+    })
+
+// 定义一个服务
+    app.factory('userInfo',function($http,$q){
+        return {
+            query:function(){
+                var defer=$q.defer;
+                $http.get('/user').success(function(data){
+                    defer.resolve(data)
+                }).error(function(data){
+                    defer.reject(data)
+                })
+
+                return defer.promise;
+            }
+        }
+    })
+</script>
+</body>
+</html>

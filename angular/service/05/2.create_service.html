@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <script src="./angular.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="user in users">
+            {{ user.name }}  {{ user.age }}
+        </li>
+    </ul>
+</div>
+<script>
+    var app=angular.module('app',[]);
+    app.controller('myCtrl',function($scope,userInfo){
+
+        // 1、$scope.users=userInfo
+    console.log(userInfo)
+        $scope.users=userInfo
+    })
+
+
+// 定制provider 服务：
+//    1、返回的是 我们注入的 $get 属性函数的 返回值
+//    app.provider('userInfo',{
+//        $get:function(){
+//            return [{name:'lili',age:10}]
+//        }
+//    })
+
+//2、如果是一个函数 会new这个对象，调用它的$get属性 得到它的返回值
+    app.provider('userInfo',function(){
+        this.users=[{name:'lili',age:10}];
+        this.$get=function(){
+            return this.users
+        }
+    })
+
+//    这里配置的是provider的实例
+    app.config(function(userInfoProvider,userAge){
+//        这个userInfo是个实例 function，跟控制器上的userInfo是不同的东西 ，所以加上Provider
+//        可以更改实例的属性  值等
+        userInfoProvider.users=[{name:'lili',age:20}];
+        userAge.age=30;
+    })
+
+
+    app.provider('userInfo',function(){
+        return 3
+    })
+
+//    注入的是 创建的构造函数实例 使用时 userInfo.age
+    app.provider('userInfo',function(){
+        return new function(){
+            this.age=3;
+        }
+    })
+
+//    不用自己new一个实例 service, 注入的就是这个实例 函数
+    app.service('userInfo',function(){
+        this.users=[{name:'lili',age:10}]
+    })
+
+//只能在config里面用,不能注入到控制器
+    app.constant('userAge',{name:'lili',age:10})
+
+//可以注入到控制器
+    app.value('userInfo',{name:'lili',age:10})
+
+</script>
+</body>
+</html>

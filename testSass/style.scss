@@ -1,0 +1,43 @@
+$color: #333;
+$bgColor: #888;
+$boxWidth: 300px;
+$boxHeight: 300px;
+
+.box {
+  width: $boxWidth;
+  height: $boxHeight;
+  color: $color;
+  background-color: $bgColor;
+
+  &:hover {
+   width: $boxWidth *1.2;
+   height: $boxHeight* 1.2;
+  }
+}
+.boxul{
+	list-style:none;
+	margin-top:40px;
+	li{
+		color:$color;
+		float:left;
+		margin-left:30px;
+    background: $bgColor;
+	}
+}
+
+/*
+*@each Loop 
+*/
+$list: product, news, activity, about;
+@each $lis in $list {
+  .#{$lis}-icon{
+    background: url('images/icons/#{$lis}.png');
+  }
+}
+
+$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);
+@each $header, $size in $headings { 
+  #{$header} {
+    font-size: $size;
+  }
+}

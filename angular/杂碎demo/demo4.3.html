@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+
+        <style type="text/css">
+            .expander {
+                border: 1px solid black;
+                width: 250px;
+            }
+            
+            .expander>.title {
+                background-color: black;
+                color: white;
+                padding: .1em .3em;
+                cursor: pointer;
+            }
+            
+            .expander>.body {
+                padding: .1em .3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-controller='SomeController'>
+            <expander class='expander' expander-title='title'>
+                {{text}}
+            </expander>
+        </div>
+
+        <script type="text/javascript">
+
+
+            var app=angular.module('app',[]);
+
+            app.directive('expander',function(){
+                return{
+                    restrict:'EA',//A属性 保留属性 expander-title='title'
+                    template : '<div>'
+                       + '<div class="title" ng-click="toggle()">{{title}}</div>'
+                       + '<div class="body" ng-show="showMe" ng-transclude></div>'
+                       + '</div>',
+                    transclude:true,
+                    replace:true,
+                    //把指令的作用域与外部的作用域隔离开来，然后映射外部的作用域到指令内部的作用域。 
+                    // 通过创建独立作用域(isolate scope)来达到这个目的。可以使用指令的scope来选项它:
+                    scope : {
+                        title : '=expanderTitle'//expander-title='title'
+                    },
+                    link : function(scope, element, attrs) {
+                        console.log(scope)
+                       scope.showMe = false;
+                       scope.toggle = function toggle() {
+                           scope.showMe = !scope.showMe;
+                        }
+                    }
+                    
+                }
+
+            })
+
+            app.controller('SomeController',function($scope){
+                console.log('111'+$scope)
+                $scope.title='展开内容';
+                $scope.text='这里是内部的内容。';
+
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // var expanderModule=angular.module('expanderModule', [])
+            // expanderModule.directive('expander', function() {
+            //     return {
+            //         restrict : 'EA',
+            //         replace : true,
+            //         transclude : true,
+            //         scope : {
+            //             title : '=expanderTitle'
+            //         },
+            //         template : '<div>'
+            //                  + '<div class="title" ng-click="toggle()">{{title}}</div>'
+            //                  + '<div class="body" ng-show="showMe" ng-transclude></div>'
+            //                  + '</div>',
+            //         link : function(scope, element, attrs) {
+            //             scope.showMe = false;
+            //             scope.toggle = function toggle() {
+            //                 scope.showMe = !scope.showMe;
+            //             }
+            //         }
+            //     }
+            // });
+
+            // expanderModule.controller('SomeController',function($scope) {
+            //     $scope.title = '点击展开';
+            //     $scope.text = '这里是内部的内容。';
+            // });
+        </script>
+    </body>
+</html

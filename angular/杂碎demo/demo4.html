@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+</head>
+<body ng-app="ezstuff">
+
+
+	<ez-namecard data="window.sb"></ez-namecard>
+	
+	<script type="text/javascript">
+
+
+		var sb = {
+			name : "somebody",
+			gender : "male",
+			age : 28
+		};
+		var app=angular.module("ezstuff",[]);
+		
+		app.directive("ezNamecard",function(){
+			return {
+				restrict : "E",
+				template : "<div class='namecard'>",
+				replace : true,
+				link : function(scope,element,attrs){
+					//读取data属性值，获得变量名，通过eval得到其值
+					var sb = eval(attrs.data);
+		
+					//填充DOM元素内容
+					element.append("<div>name : " + sb.name + "</div>")
+						.append("<div>gender : " + sb.gender + "</div>")
+						.append("<div>age : " + sb.age + "</div>")
+				}
+			};
+		});
+
+	</script>
+</body>
+</html>

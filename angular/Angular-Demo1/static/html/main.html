@@ -1,0 +1,21 @@
+<div ng-controller="mainController">
+	<style type="text/css">
+		.left{float: left;}
+		.nav{width: 200px;background: #eee;}
+		.nav ul{list-style: none;}
+		.nav ul li{line-height: 32px;}
+		.loginUser{position: absolute;right: 30px;}
+	</style>
+	<div>
+		<div class="left nav">
+			<ul>
+				<li><a href="#" ng-click="navUser()">用户清单</a></li>
+				<li><a href="#" ng-click="navPersonal()">个人信息</a></li>
+			</ul>
+		</div>
+		<div class="left">
+			<div ng-include="containerUrl"></div>
+		</div>
+		<div class="loginUser" ng-bind="loginUser.userName"></div>
+	</div>
+</div>

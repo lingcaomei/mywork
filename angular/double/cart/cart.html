@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <script src="cart.js"></script>
+    <style>
+    .wrap{width: 1000px;margin: 50px auto;}
+    </style>
+</head>
+<body ng-app="myCart" >
+    <div class="wrap">
+        <div ng-controller="cartCtrl">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>商品名称</th>
+                    <th>商品价格</th>
+                    <th>商品数量</th>
+                    <th>商品总金额</th>
+                    <th>删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <th>{{item.name}}</th>
+                    <td>{{item.price}}</td>
+                    <td><input type="text" ng-model="item.quantity"/></td>
+                    <td>{{item.price*item.quantity}}</td>
+                    <td><button ng-click="del($index)">删除</button></td>
+                </tr>
+                <tr>
+                    <th>总金额：{{total()|currency :'￥'}}</th>
+                    <th>折扣：{{discount()|currency:'￥'}}</th>
+                    <th>折后总金额：{{total()-discount()|currency:'￥'}}</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

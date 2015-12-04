@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+</head>
+<body>
+	<div ng-init="price=1;cost=2">
+		<div>单价：<input type="number" ng-model="price"></div>
+		<div>数量：<input type="number" ng-model="cost"></div>
+		<div>总价：{{ price * cost | currency }}</div>
+	</div>
+</body>
+</html>

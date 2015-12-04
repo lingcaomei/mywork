@@ -1,0 +1,362 @@
+*{padding: 0;margin: 0;box-sizing:border-box;    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;}
+a{text-decoration: none;}
+html {
+    -webkit-font-smoothing: antialiased;
+    font-size: 62.5%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #EEE;
+}
+html {
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*body {font-size: 1.4rem;/*1.4 × 10px = 14px*/ }
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 49px;
+    line-height: 49px;
+    padding: 0 10px;
+
+    text-align: center;
+    background-color: #F70808;
+    border-bottom-color: #fff;
+    min-height: 50px;
+    z-index: 1000000;
+}
+    
+.header .header-title {
+	height: 100%;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+   
+.header-right {
+	height: 100%;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #eee;
+}
+.header-right a {
+    display: inline-block;
+    height: 100%;
+    min-width: 36px;
+    text-align: center;
+    color: #eee;
+}
+/*布局 start*/
+body{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: Helvetica Neue,Helvetica,sans-serif;
+    font-size: .85rem;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
+    overflow: hidden;
+
+    max-width: 720px;
+    margin: 0 auto;
+
+}
+.main {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+}
+.wrap{
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex: 0 1 auto;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    -ms-flex: 0 0 auto;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-wrap: nowarp;
+    -ms-flex-wrap: nowarp;
+    flex-wrap: nowarp;
+    height: 50px;
+    width: 100%;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+/*布局 end*/
+
+.sec{
+	width: 100%;
+	height: 300px;
+}
+.sec1{background: #FFD8DE;}
+.sec2{background: #9E9798;}
+.sec3{background: #FFD8DE;}
+.sec4{background: #9E9798;}
+.sec5{background: #FFD8DE;}
+
+.sec1{font-size: 18px;}
+.sec1 span{font-size: 26px;}
+
+
+.sec2 div{font-size: 12px;}
+/*移动端 默认字体 9px*/
+.sec2 span{font-size: 9px;}
+
+ul{list-style: none;}
+/*..............flex布局 Start.............*/
+.flex{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content:center;
+}
+/*让flex项目在容器内上下左右居中显示*/
+.ul2{
+    height: 100px;
+    background: #000;
+
+    -webkit-justify-content:center;
+    justify-content:center;/*flex项目水平居中显示*/
+    -webkit-align-items:center;
+    align-items:center;/*flex项目垂直居中显示*/
+}
+
+
+.ul1 li{
+    -webkit-flex:1;
+    flex:1;
+}
+.ul2 li{
+    width: 20%;
+}
+.ul3{
+    -webkit-justify-content:space-around;
+
+}
+.ul3 li{
+    width: 20%;
+}
+
+
+/*.....半响应布局.....*/
+.ul4 li:nth-child(1){
+    width: 30px;
+}
+.ul4 li:nth-child(2){
+    flex:1;
+    -webkit-flex:1;    
+}
+/*文字溢出 变成省略号*/
+.ul4 li:nth-child(2) p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+/*margin:auto;实现水平垂直居中*/
+.ul5{
+    height: 100px;
+    background: #000;
+}
+.ul5 li{
+    width: 50px;
+    height: 30px;
+    background: #ccc;
+    margin: auto;/*felx项目在容器中上下居中了  一个项目的话就在容器水平垂直居中  多个项目的话就在分到的 （等分内水平），（容器垂直） 居中*/
+}
+
+/*align-self:center;实现水平垂直居中*/
+.ul6{
+    height: 100px;
+    background: #333;
+}
+.ul6 li{
+    width: 50px;
+    height: 30px;
+    background: #ccc;
+}
+.ul6 li:nth-child(1){
+    -webkit-align-self:center;
+    align-self:center;
+}
+
+
+/*挤到右边*/
+.ul7 li{
+    width: 50px;
+    text-align: center;
+}
+.login{
+    margin-left: auto;
+}
+
+
+
+
+.flex li:nth-child(2n){ 
+    background: #ccc;
+}
+.flex li:nth-child(2n+1){
+    background: #eee;
+}
+/*..............flex布局 End.............*/
+
+/*底部导航布局*/
+.nav{
+
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    
+    padding: 0 8px;
+    list-style: none;
+    width: 100%;
+    position: relative;
+    z-index: 1015;
+}
+/*模拟border*/
+.nav:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background: #B5B5B5;
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+}
+/*移动端下 缩小到 0.3 ,变细线*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2){
+.nav:before {
+    -webkit-transform: scaleY(.3);
+    -ms-transform: scaleY(.3);
+    transform: scaleY(.3);
+}
+}
+.nav li {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    float: none;
+}
+
+.nav li a {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    color: #4B4B4B;
+    line-height: 20px;
+}
+.nav li a img {
+    width: 28px;
+    height: 28px;
+    display: block;
+    vertical-align: middle;
+    margin: 4px auto 0;
+}
+
+.nav li a span {
+    padding-top: 2px;
+    line-height: 1;
+    font-size: 12px;
+    display: block;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+img {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen
+.am-avg-sm-4>li:nth-of-type(4n+1) {
+    clear: both;
+}
+@media only screen
+.am-avg-sm-4>li:nth-of-type(n) {
+    clear: none;
+}
+@media only screen
+.am-avg-sm-4>li {
+    width: 25%;
+}

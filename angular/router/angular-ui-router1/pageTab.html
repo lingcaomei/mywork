@@ -1,0 +1,13 @@
+<div>
+    <style>
+        .active a{color: red;font-size: 18px;}
+    </style>
+    <div>
+        <span ng-class="{active:'pageTab.page1'==current}" style="width:100px" ui-sref=".page1"><a href="">Page-1</a></span>
+        <span ng-class="{active:'pageTab.page2'==current}" style="width:100px" ui-sref=".page2"><a href="">Page-2</a></span>
+        <span ng-class="{active:'pageTab.page3'==current}" style="width:100px" ui-sref=".page3"><a href="">Page-3</a></span>
+    </div>
+    <div>
+        <div ui-view=""/></div>
+    </div>
+</div>

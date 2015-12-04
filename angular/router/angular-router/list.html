@@ -1,0 +1,15 @@
+<div ng-controller="listCtrl">
+    <style>
+        .list{margin: 100px;}
+        .list li{line-height: 40px;}
+        .list li span{display: inline-block;width: 100px;}
+    </style>
+    <div class="list">
+        <ul>
+            <li ng-repeat="item in list">
+                <span>{{item.name}}</span>
+                <span>{{item.demand}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

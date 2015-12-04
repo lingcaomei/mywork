@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="./angular.js"></script>
+
+</head>
+<body ng-app="app">
+    <div ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="user in users">
+               {{ user.name }}  {{ user.age }}
+            </li>
+        </ul>
+    </div>
+
+<script>
+    var app=angular.module('app',[]);
+    app.controller('myCtrl',function($scope,$http){//$http angular自带的服务
+        //向服务器请求数据 返回的数据是data
+        $http.get('/user').success(function(data){
+            $scope.users=data;
+            console.log(data)
+        })
+
+//        $http({method: 'GET', url: '/someUrl'}).
+//            success(function(data, status, headers, config) {
+//            }).
+//            error(function(data, status, headers, config) {
+//
+//            });
+
+
+    })
+</script>
+</body>
+</html>

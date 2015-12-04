@@ -1,0 +1,31 @@
+<!doctype html>
+ <html ng-app >
+ <head>
+ 	<meta charset="utf-8">
+     <!-- // <script src="js/angular.js"></script> -->
+     <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+ </head>
+ <body>
+     <div ng-controller="testCtrl">
+         <label>Name:</label>
+         <input type="text" ng-model="yourName" placeholder="输入你的名字">
+         <input type="text" ng-model="yourAge" placeholder="your age">
+         <button ng-click="clearInputValue()">清空</button>
+         <hr>
+         <h1>Hello {{yourName}}!</h1>
+         <h1>age {{yourAge}}!</h1>
+
+     </div>
+     <script>
+     	// $scope大家可以理解为ViewModel，ng Model的载体（或者说上下文），所有模板中使用的ng变量都在$scope上
+         function testCtrl($scope) {
+            $scope.yourName = "gogo";
+            $scope.yourAge= "18"
+            $scope.clearInputValue = function () {
+                $scope.yourName = "";
+                $scope.yourAge = "";
+            }
+        }
+     </script>
+ </body>
+</html>

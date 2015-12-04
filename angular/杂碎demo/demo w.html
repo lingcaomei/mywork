@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+
+</head>
+<body>
+	<h4>传统风格</h4>
+	<label><input type="checkbox" ng-model="vm.checked"/>&nbsp;复选框</label>
+	<div>
+	  {{vm.checked}}
+	</div>
+	
+	
+	<h4>按钮风格</h4>
+	<label ng-class="{active:vm.checked}" class="btn btn-primary"><input type="checkbox" class="hidden"ng-model="vm.checked"/>&nbsp;复选框</label>
+	<div>
+	  {{vm.checked}}
+	</div>
+
+	<script type="text/javascript">
+
+		'use strict';
+
+		angular.module('ngShowcaseApp').controller('ctrl.input.checkbox', function ($scope) {
+
+		  var vm = $scope.vm = {};
+
+		});
+
+	</script>
+</body>
+</html>

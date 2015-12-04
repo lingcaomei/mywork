@@ -1,0 +1,29 @@
+
+<div ng-controller="userListController">
+	<style type="text/css">
+		.list{list-style: none;}
+		.list li{line-height: 32px;}
+		.list li span{width:120px;display: inline-block;}
+	</style>
+	<div>
+		<div>
+			<input type="text" ng-model="filter.userName">
+			<input type="button" value="搜索" ng-click="search()">
+			<input type="button" value="创建新用户" ng-click="addNewUser()">
+		</div>
+		<div>
+			<ul class="list">
+				<li>
+					<span>用户名</span>
+					<span>密码</span>
+					<span>类型</span>
+				</li>
+				<li ng-repeat="item in users">
+					<span>{{item.userName}}</span>
+					<span>{{item.password}}</span>
+					<span>{{item.type}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

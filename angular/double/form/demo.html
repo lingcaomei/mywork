@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <script src="/form.js"></script>
+</head>
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">双向数据绑定</div>
+        </div>
+        <div class="panel-body">
+            <div class="rom">
+                <div class="col-md-12">
+                    <form action="#" class="form-horizontal" role="form" ng-controller="loginForm">
+                        <div class="form-group">
+                            <label  class="col-md-2 control-label">邮箱：</label>
+                            <div class="col-md-10">
+                                <input type="email" class="form-control" placeholder="推荐使用126邮箱" ng-model="userInfo.email"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-md-2 control-label">密码：</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" placeholder="只能输入字母数字下划线" ng-model="userInfo.password"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" ng-model="userInfo.loginauto"/ >自动登录</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button class="btn" ng-click="getFormData()">获取登录信息</button>
+                                <button class="btn" ng-click="setFormData()">设置登录信息</button>
+                                <button class="btn" ng-click="saveFormData()">保存登录信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

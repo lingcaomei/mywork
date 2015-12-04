@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body ng-app="app">
+<div class="container">
+    <div class="navbar navbar-inverse">
+        <ul class="nav navbar-nav" style="width: 100%;" ng-init="current='home'">
+            <li ng-class="{active:'home'==current}"><a href="#" ui-sref="home">首页</a></li>
+            <li ng-class="{active:'user'==current}"><a href="#" ui-sref="user">用户管理</a></li>
+            <li ng-class="{active:'list'==current}"><a href="#" ui-sref="list">产品列表</a></li>
+            <li ng-class="{active:'profile'==current}" class="pull-right"><a href="#" ui-sref="profile">个人中心</a></li>
+        </ul>
+    </div>
+    <div ui-view=""></div>
+</div>
+<script src="js/angular.js"></script>
+<script src="js/angular-ui-router.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

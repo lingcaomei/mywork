@@ -1,0 +1,11 @@
+
+<div ng-controller="LoginController">
+	<div>
+		<form ng-submit="login()" >
+			<div><input type="text" ng-model="userInfo.userName" required></div>
+			<div><input type="text" ng-model="userInfo.password" required></div>
+			<div><input type="submit" value="登陆"></div>
+		</form>
+	<div ng-bind="err"></div>
+	</div>
+</div>

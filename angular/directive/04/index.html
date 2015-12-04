@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <script src="isolate.js"></script>
+</head>
+<body ng-app="app">
+    女孩01<girl></girl>
+    女孩02<girl></girl>
+    女孩03<girl></girl>
+
+    <div ng-controller="cityCtrl">
+
+        <!-- 把控制器上面的值传递到指令上：通过属性的值 作为字符串传给 指令的scope-->
+        <i-person i-name="{{city}}"></i-person>
+    </div>
+</body>
+</html>

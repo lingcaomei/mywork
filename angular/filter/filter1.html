@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body >
+    <div> {{1300000000 | date}} </div> <!--时间戳转为日期-->
+    <div>{{13000000 | date: 'yyyy-MM-dd hh:mm:ss'}}</div> <!--时间戳转为日期格式化-->
+    <div>{{13000000 | currency:'￥'}}</div> <!--转为人民币格式-->
+    <div>{{ 'bbbb' | uppercase }}</div> <!--转大写-->
+    <div>{{ 13.999999999 | limitTo:4 }}</div> <!--显示4位长度-->
+    {{'hhhh2121234' | omit:4}}
+<script>
+    var app=angular.module('app',[]);
+
+    //自定义过滤器
+    app.filter('omit',function(){ // 'omit'过滤器的名字
+        return function(item,tail){ //item 取的是值 tail 是过滤器的参数
+
+            tail=tail||3;
+            item=item.replace(/(^\s*)|(\s*$)/g,'');//去掉前后空格
+            var xh='';                   //星星的个数
+            for(var i=0;i<tail;i++){
+                xh=xh+'*'
+            }
+            item=item.substr(0,1)+xh+item.substr(item.length-1); //取前后的字符，中间是星星
+
+            return item;//返回的值就是 过滤器前需要处理的值
+        }
+    })
+</script>
+</body>
+</html>

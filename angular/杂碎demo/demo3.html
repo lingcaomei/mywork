@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+		.tab{margin-top: 20px;}
+		.tab ul{list-style: none;overflow: hidden;}
+		.tab ul >li{float: left;width: 100px;text-align: center;line-height: 30px;background: #ccc;}
+		.tab ul >li.active a{background: #333;color: white;display: block;}
+		.tab>div{width: 200px;background: #f1f1f1;height: 200px;margin-left: 40px;padding: 12px;}
+	</style>
+</head>
+<body ng-controller="newLi">
+	<div>
+	<div>
+		<input  type="text" ng-model="yourtext"><input type="button" value="创建" ng-click="addTodo();alert(yourtext)" >
+	</div>
+	<div>
+		<ul >
+			<li ng-repeat="item in todos">{{item.text|| '111'}}</li>
+		</ul>
+	</div>
+
+
+	<div class="tab">
+		<ul ng-init="vm.activeTab=1">
+			<li ng-class="{active:vm.activeTab==1}" ><a href="#" ng-click="vm.activeTab=1">1111</a></li>
+			<li ng-class="{active:vm.activeTab==2}" ><a href="#" ng-click="vm.activeTab=2">2222</a></li>
+		</ul>
+		<div>
+			<div ng-show="vm.activeTab==1">内容111111111111</div>
+			<div ng-show="vm.activeTab==2">内容22222222222222</div>
+		</div>
+	</div>
+
+	<button ng-click="a=!a">显示\隐藏</button>
+	<div ng-show="a">显示啦。。。。</div>
+
+	</div>
+	<script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('app',[]);
+
+		app.controller('newLi',['$scope',function($scope){
+			$scope.todos=[
+				{text:$scope.yourtext}
+			];
+
+			$scope.yourtext = '';
+			 $scope.addTodo = function() {
+                $scope.todos.push({text:$scope.yourtext}); 
+            };
+
+            $scope.yourtext = '';
+            $scope.alert=function(str){
+            	alert(str);
+            }
+
+            var vm=$scope.vm={};
+
+		}])
+	</script>
+</body>
+</html>

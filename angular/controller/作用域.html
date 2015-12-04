@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="first">
+        <input type="text" ng-model="msg"/>
+        <div ng-bind="msg"></div>
+    </div>
+    <div ng-controller="second">
+        <input type="text" ng-model="msg"/>
+        <div ng-bind="msg"></div>
+    </div>
+</body>
+</html>

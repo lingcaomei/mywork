@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://ngnice.com/lib/angular/1.2.16/angular.js"></script>
+    <script src="app.js"></script>
+    <style>
+    .wrap{width: 1000px;margin: 50px auto;}
+    </style>
+</head>
+<body ng-app="myCart" >
+    <div class="wrap" ng-controller="totalCtrl">
+        <div>总金额：<input type="text" ng-model="total" ng-change="cc()"/></div>
+        <div>总金额1：<input type="text" ng-model="total1" ng-change="dd()"/></div>
+
+        <div ng-controller="cartCtrl">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>商品名称</th>
+                    <th>商品价格</th>
+                    <th>商品数量</th>
+                    <th>商品总金额</th>
+                    <th>删除</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>{{item.name}}</th>
+                    <td>{{item.price}}</td>
+                    <!-- ng-change与js onchange事件相似 当文本框内容改变时 触发 -->
+                    <td><input type="text" ng-model="item.quantity" ng-change="change()"/></td>
+                    <td>{{item.price*item.quantity}}</td>
+                    <td><button>删除</button></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+    <script src="scope.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model='user.name'/ >
+        <input type="text" ng-model="user.psw"/>
+        <input type="button" value="登陆" ng-click="login()"/>
+        <div ng-show="err.length>0">{{err}}</div>
+        <!--<div>{{reverse()}}</div>-->
+    </div>
+</body>
+</html>

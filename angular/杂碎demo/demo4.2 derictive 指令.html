@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+</head>
+<body>
+	<hello>	hello here !</hello>
+
+	<!-- 生成的结构 -->
+	<!-- <div>Ha ha <span ng-transclude=""><span class="ng-scope">	hello here !</span></span></div> -->
+
+	<script type="text/javascript">
+		var app=angular.module('app',[]);
+
+		app.directive('hello',function(){
+			return {
+				restrict: 'E',
+				template:'<div>Ha ha <span ng-transclude></span></div>',//transclude: true，HTML代码里面在<hello>内部出现了子标签
+				transclude:true,//出现了子标签 ,但是原来的内容不变 ，只是标签变了 ，会产生一个标签来装载原来的内容
+				replace:true//替换标签必须
+			}
+		},true)
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+</head>
+ <body ng-controller='MyController'>
+
+    <div ng-repeat='thing in things'><!--ng-repeat='thing in things' 循环遍历数组things thing为值  -->
+        {{thing}}.<hello></hello>
+    </div>
+
+<!--结果：  
+	1.Hi there
+	2.Hi there
+	3.Hi there
+	4.Hi there
+	5.Hi there
+	6.Hi there -->
+
+    <script type="text/javascript">
+
+    	var appModule = angular.module('app', []);
+		appModule.directive('hello', function() {
+		    return {
+		        restrict: 'E',
+		        template: '<span>Hi there</span>',
+		        replace: true
+		    };
+		});
+
+		appModule.controller('MyController',function($scope) {
+		    $scope.things = [1,2,3,4,5,6];
+		});
+
+    </script>
+</body>
+</html>
