@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../libs/angular.js"></script>
+    <script type="text/javascript" src="../libs/cookies.js"></script>
+    <script type="text/javascript" src="../libs/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script type="text/javascript" src="../js/controller/app.js"></script>
+    <script type="text/javascript" src="../js/controller/index.js"></script>
+    <script type="text/javascript" src="../js/controller/login.js"></script>
+    <script type="text/javascript" src="../js/controller/main.js"></script>
+    <script type="text/javascript" src="../js/controller/user.js"></script>
+    <script type="text/javascript" src="../js/controller/new-user.js"></script>
+    <script type="text/javascript" src="../js/directive/email-validate.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+</head>
+
+<body ng-app='penging'>
+    <div ng-controller="IndexController">
+        <div ng-include="containerUrl"></div>
+    </div>
+</body>
+
+</html>

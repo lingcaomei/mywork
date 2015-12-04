@@ -1,0 +1,36 @@
+<div ng-controller="UserController">
+	<style type="text/css">
+		.odd-style {
+			background-color: yellow;
+		}
+		.table {
+			width:100%;
+		}
+		.table th {
+			background-color: gray;
+			font-weight: 700;
+			border:solid black 1px;
+		}
+	</style>
+	<div>
+		<input type="text" ng-model='filter.userName' placeholder="用户名">
+		<input type="button" value="Search" ng-click='search()'>
+		<input type="button" value="Add New User" ng-click='addNewUser()'>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>User Name</th>
+				<th>Password</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in users" ng-class-odd="'odd-style'">
+			
+				<td>[[item.userName]]</td>
+				<td>[[item.password]]</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
